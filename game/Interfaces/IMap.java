@@ -1,7 +1,9 @@
 package game.Interfaces;
 
+import game.Enums.Direction;
+
 /**
- * Interface for the superclass Map that stores the map to be used in the game.
+ * Interface for the class that stores the map to be used in the game.
  */
 public interface IMap {
     /**
@@ -12,9 +14,18 @@ public interface IMap {
     /**
      * Randomly generates a wheighted graph that will serve as the game map.
      * 
-     * @param description is the set of modifiers that restrict the map generation.
+     * @param locations_qty amount of locations on the map.
+     * @param direction     is either one-way or two-way.
+     * @param density       is the percentage from 0 to 1 of the amount of edges.
      */
-    public void generate_map(/* description */);
+    public void generate_map(int locations_qty, Direction direction, float density);
+
+    /**
+     * Stores a previously saved map into the game.
+     * 
+     * @param filename is the string containing the file name/path.
+     */
+    public void load_map(String filename);
 
     /**
      * Saves the current map to be used at a later date.
@@ -22,9 +33,4 @@ public interface IMap {
      * @param name whitch will be saved with the map.
      */
     public void save_map(String name);
-
-    /**
-     * Stores a previously saved map into the game.
-     */
-    public void load_map();
 }

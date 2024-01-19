@@ -1,7 +1,9 @@
 package game;
 
 import game.Interfaces.IPlayer;
+import game.Enums.Direction;
 import game.Enums.GameStatus;
+import game.Exceptions.gameStatusIllegalAction;
 import game.Interfaces.IGame;
 import game.Interfaces.IMap;
 
@@ -11,16 +13,29 @@ import game.Interfaces.IMap;
  * @author Alexandre Rocha, Gabriel Klotz
  */
 public class Game implements IGame {
+
     /**
      * Singleton instance of the class Game.
      */
     private static Game instance = null;
 
+    /**
+     * Singleton instance of the map.
+     */
     private IMap map;
 
+    /**
+     * First player.
+     */
     private IPlayer player1;
+    /**
+     * Second player.
+     */
     private IPlayer player2;
 
+    /**
+     * Status of the current game.
+     */
     private GameStatus status;
 
     /**
@@ -47,39 +62,84 @@ public class Game implements IGame {
     }
 
     /**
-     * Method that takes the defenitions for a new map and creates it.
-     * 
-     * @param locations_qty amount of locations on the map.
-     * @param direction     is either one-way or two-way.
-     * @param density       is the percentage from 0 to 1 of the amount of edges.
+     * {@inheritdoc}
      */
-    public void mapDefenitions(int locations_qty, boolean direction, float density) { //make an enum for direction
+    @Override
+    public IPlayer getPlayer1() throws gameStatusIllegalAction {
+        if (this.status != GameStatus.NEW_GAME) {
+            throw new gameStatusIllegalAction(
+                    "You can only use this method when ths status is: " + GameStatus.NEW_GAME + ".");
+        }
+        return player1;
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    @Override
+    public IPlayer getPlayer2() throws gameStatusIllegalAction {
+        if (this.status != GameStatus.NEW_GAME) {
+            throw new gameStatusIllegalAction(
+                    "You can only use this method when ths status is: " + GameStatus.NEW_GAME + ".");
+        }
+        return player2;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    @Override
+    public void mapDefenitions(int locations_qty, Direction direction, float density) throws gameStatusIllegalAction {
+        if (this.status != GameStatus.MAP_DEF) {
+            throw new gameStatusIllegalAction(
+                    "You can only use this method when ths status is: " + GameStatus.MAP_DEF + ".");
+        }
+        this.map.generate_map(locations_qty, direction, density);
         this.status = GameStatus.PLAYER_DEF;
     }
 
     /**
-     * Method that imports the map defenitions from a specified file.
-     * 
-     * @param filename is the string containing the file name/path.
+     * {@inheritdoc}
      */
-    public void mapDefenitions(String filename) {
-
+    @Override
+    public void mapDefenitions(String filename) throws gameStatusIllegalAction {
+        if (this.status != GameStatus.MAP_DEF) {
+            throw new gameStatusIllegalAction(
+                    "You can only use this method when ths status is: " + GameStatus.MAP_DEF + ".");
+        }
+        this.map.load_map(filename);
         this.status = GameStatus.PLAYER_DEF;
     }
 
-    public void playerDefenitions() {
-        
+    /**
+     * {@inheritdoc}
+     */
+    @Override
+    public void playerDefenitions(String p1, String flag1, String p2, String flag2) throws gameStatusIllegalAction {
+        if (this.status != GameStatus.PLAYER_DEF) {
+            throw new gameStatusIllegalAction(
+                    "You can only use this method when ths status is: " + GameStatus.PLAYER_DEF + ".");
+        }
+        this.player1 = new Player(p1, flag1);
+        this.player2 = new Player(p2, flag2);
         this.status = GameStatus.NEW_GAME;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    @Override
     public void gameStart() {
 
         this.status = GameStatus.ONGOING;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    @Override
     public void gameEnd() {
-        
+
     }
 
 }
