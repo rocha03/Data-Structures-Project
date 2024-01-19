@@ -12,14 +12,6 @@ import datastructs.Exceptions.EmptyCollectionException;
 public interface ListADT<T> extends Iterable<T> {
 
     /**
-     * Adds an element at the start of the list.
-     * 
-     * @param element is the element to add.
-     * @return the added element.
-     */
-    T addFirst(T element);
-
-    /**
      * Removes the first node.
      * 
      * @return the element of the removed node.
