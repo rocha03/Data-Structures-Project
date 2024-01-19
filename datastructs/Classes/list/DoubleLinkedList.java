@@ -1,50 +1,27 @@
 package datastructs.Classes.list;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
 import datastructs.Classes.nodes.TwoWayNode;
 import datastructs.Exceptions.EmptyCollectionException;
 import datastructs.Interfaces.ListADT;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
- * Doubly linked list class
- * 
- * @author Alexandre Rocha, Gabriel Klotz
- * @todo add, contains and iteration functions
+ *
+ * @author klotz
  */
-public class DoublyLinkedList<T> implements ListADT<T> {
+public abstract class DoubleLinkedList<T> implements ListADT<T>{
     
-    /**
-     * Last node.
-     */
-    private TwoWayNode<T> first;
-    /**
-     * First node.
-     */
-    private TwoWayNode<T> last;
-    /**
-     * Number of nodes in the list.
-     */
-    private int size;
-    /**
-     * 
-     */
-    private int modCount;
+    private TwoWayNode<T> first, last;
+    private int size, modCount;
     
-    /**
-     * Constructor.
-     */
-    public DoublyLinkedList(){
+    public DoubleLinkedList(){
         this.modCount = 0;
         this.size = 0;
         this.first = null;
         this.last = null;
     }
     
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public T removeFirst() throws EmptyCollectionException {
         if(isEmpty()){
@@ -59,9 +36,6 @@ public class DoublyLinkedList<T> implements ListADT<T> {
         return removed;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public T removeLast() throws EmptyCollectionException {
         if(isEmpty()){
@@ -80,9 +54,6 @@ public class DoublyLinkedList<T> implements ListADT<T> {
         return removed;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public T remove(T element) throws EmptyCollectionException {
         if(isEmpty()){
@@ -106,9 +77,6 @@ public class DoublyLinkedList<T> implements ListADT<T> {
         return removed.getElement();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public T first() throws EmptyCollectionException {
         if(isEmpty()){
@@ -118,9 +86,6 @@ public class DoublyLinkedList<T> implements ListADT<T> {
         return this.first.getElement();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public T last() throws EmptyCollectionException {
         if(isEmpty()){
@@ -130,38 +95,23 @@ public class DoublyLinkedList<T> implements ListADT<T> {
         return this.last.getElement();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public boolean contains(T target) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public boolean isEmpty() {
         return this.size() == 0;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public int size() {
         return this.size;
     }
 
-    /**
-     * Finds a node in the list by its element.
-     * @param element is the element used to search.
-     * @return the node once found.
-     * @throws NoSuchElementException when the element inserted is invalid.
-     */
-    private TwoWayNode<T> find(T element) throws NoSuchElementException{
-        TwoWayNode<T> current = first;
+    private TwoWayNode find(T element) throws NoSuchElementException{
+        TwoWayNode current = first;
         
         while(current != null){
             if(current.getElement().equals(element)){
@@ -173,19 +123,10 @@ public class DoublyLinkedList<T> implements ListADT<T> {
         
     }
     
-    /**
-     * {@inheritdoc}
-     */
     @Override
     public Iterator<T> iterator() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    @Override
-    public String toString() {
-        return "DoublyLinkedList [size=" + size + ", modCount=" + modCount + "]";
-    }
+    
 }
