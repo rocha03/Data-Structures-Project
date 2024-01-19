@@ -32,6 +32,10 @@ public class Game implements IGame {
      * Second player.
      */
     private IPlayer player2;
+    /**
+     * Number of bots by player.
+     */
+    private int numBots;
 
     /**
      * Status of the current game.
@@ -97,6 +101,14 @@ public class Game implements IGame {
      * {@inheritdoc}
      */
     @Override
+    public int getNumBots() {
+        return this.numBots;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    @Override
     public void mapDefinitions(int locations_qty, Direction direction, float density) throws gameStatusIllegalAction {
         if (this.status != GameStatus.MAP_DEF) {
             throw new gameStatusIllegalAction(
@@ -123,13 +135,14 @@ public class Game implements IGame {
      * {@inheritdoc}
      */
     @Override
-    public void playerDefinitions(String p1, String flag1, String p2, String flag2) throws gameStatusIllegalAction {
+    public void playerDefinitions(String p1, String flag1, String p2, String flag2, int numBots) throws gameStatusIllegalAction {
         if (this.status != GameStatus.PLAYER_DEF) {
             throw new gameStatusIllegalAction(
                     "You can only use this method when ths status is: " + GameStatus.PLAYER_DEF + ".");
         }
         this.player1 = new Player(p1, flag1);
         this.player2 = new Player(p2, flag2);
+        this.numBots = numBots;
         this.status = GameStatus.NEW_GAME;
     }
 
@@ -139,6 +152,7 @@ public class Game implements IGame {
     @Override
     public void gameStart() {
 
+        //bot.loadmap
         this.status = GameStatus.ONGOING;
     }
 

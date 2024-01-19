@@ -28,9 +28,16 @@ public interface IGame {
     /**
      * Getter for the current status of the game.
      * 
-     * @return
+     * @return the current status.
      */
     public GameStatus getStatus();
+
+    /**
+     * Getter for the number of bots per player.
+     * 
+     * @return the number of bots.
+     */
+    public int getNumBots();
 
     /**
      * Method that takes the definitions for a new map and creates it.
@@ -53,13 +60,15 @@ public interface IGame {
     /**
      * Method that sets the players' definitions for the first time in the game.
      * 
-     * @param p1    name of the first player.
-     * @param flag1 the flag that the first player chose.
-     * @param p2    name of the second player.
-     * @param flag2 the flag that the second player chose.
+     * @param p1      name of the first player.
+     * @param flag1   the flag that the first player chose.
+     * @param p2      name of the second player.
+     * @param flag2   the flag that the second player chose.
+     * @param numBots the number of bots per player.
      * @throws gameStatusIllegalAction when you can no longer use this method.
      */
-    public void playerDefinitions(String p1, String flag1, String p2, String flag2) throws gameStatusIllegalAction;// change
+    public void playerDefinitions(String p1, String flag1, String p2, String flag2, int numBots)
+            throws gameStatusIllegalAction;// change
 
     /**
      * Method that starts the game itself.
