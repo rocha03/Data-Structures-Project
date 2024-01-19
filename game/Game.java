@@ -89,6 +89,14 @@ public class Game implements IGame {
      * {@inheritdoc}
      */
     @Override
+    public GameStatus getStatus() {
+        return this.status;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    @Override
     public void mapDefenitions(int locations_qty, Direction direction, float density) throws gameStatusIllegalAction {
         if (this.status != GameStatus.MAP_DEF) {
             throw new gameStatusIllegalAction(

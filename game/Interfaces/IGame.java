@@ -1,6 +1,7 @@
 package game.Interfaces;
 
 import game.Enums.Direction;
+import game.Enums.GameStatus;
 import game.Exceptions.gameStatusIllegalAction;
 
 /**
@@ -23,6 +24,13 @@ public interface IGame {
      * @throws gameStatusIllegalAction when you can no longer use this method.
      */
     public IPlayer getPlayer2() throws gameStatusIllegalAction;
+
+    /**
+     * Getter for the current status of the game.
+     * 
+     * @return
+     */
+    public GameStatus getStatus();
 
     /**
      * Method that takes the defenitions for a new map and creates it.
