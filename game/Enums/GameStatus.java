@@ -1,5 +1,5 @@
 package game.Enums;
 
 public enum GameStatus {
-    NEW_GAME, ONGOING;
+    MAP_DEF, PLAYER_DEF, NEW_GAME, ONGOING;
 }
