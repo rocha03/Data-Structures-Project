@@ -33,25 +33,25 @@ public interface IGame {
     public GameStatus getStatus();
 
     /**
-     * Method that takes the defenitions for a new map and creates it.
+     * Method that takes the definitions for a new map and creates it.
      * 
      * @param locations_qty amount of locations on the map.
      * @param direction     is either one-way or two-way.
      * @param density       is the percentage from 0 to 1 of the amount of edges.
      * @throws gameStatusIllegalAction when you can no longer use this method.
      */
-    public void mapDefenitions(int locations_qty, Direction direction, float density) throws gameStatusIllegalAction;
+    public void mapDefinitions(int locations_qty, Direction direction, float density) throws gameStatusIllegalAction;
 
     /**
-     * Method that imports the map defenitions from a specified file.
+     * Method that imports the map definitions from a specified file.
      * 
      * @param filename is the string containing the file name/path.
      * @throws gameStatusIllegalAction when you can no longer use this method.
      */
-    public void mapDefenitions(String filename) throws gameStatusIllegalAction;
+    public void mapDefinitions(String filename) throws gameStatusIllegalAction;
 
     /**
-     * Method that sets the players' defenitions for the first time in the game.
+     * Method that sets the players' definitions for the first time in the game.
      * 
      * @param p1    name of the first player.
      * @param flag1 the flag that the first player chose.
@@ -59,7 +59,7 @@ public interface IGame {
      * @param flag2 the flag that the second player chose.
      * @throws gameStatusIllegalAction when you can no longer use this method.
      */
-    public void playerDefenitions(String p1, String flag1, String p2, String flag2) throws gameStatusIllegalAction;// change
+    public void playerDefinitions(String p1, String flag1, String p2, String flag2) throws gameStatusIllegalAction;// change
 
     /**
      * Method that starts the game itself.

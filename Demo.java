@@ -46,7 +46,7 @@ public class Demo {
                         System.out.println("\nDensidade das Arestas:");
                         float density = scanner.nextFloat();
 
-                        game.mapDefenitions(locations_qty, direction, density);
+                        game.mapDefinitions(locations_qty, direction, density);
                         break;
                     case 2:
                         
@@ -63,7 +63,7 @@ public class Demo {
                 System.out.println("\nLocalização da Bandeira do jogador" + nomeJogador2 + ":");
                 String bandeiraJogador2 = scanner.nextLine();
 
-                game.playerDefenitions(nomeJogador1, bandeiraJogador1, nomeJogador2, bandeiraJogador2);
+                game.playerDefinitions(nomeJogador1, bandeiraJogador1, nomeJogador2, bandeiraJogador2);
 
                 int numOfBots;
                 do{

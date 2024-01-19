@@ -97,7 +97,7 @@ public class Game implements IGame {
      * {@inheritdoc}
      */
     @Override
-    public void mapDefenitions(int locations_qty, Direction direction, float density) throws gameStatusIllegalAction {
+    public void mapDefinitions(int locations_qty, Direction direction, float density) throws gameStatusIllegalAction {
         if (this.status != GameStatus.MAP_DEF) {
             throw new gameStatusIllegalAction(
                     "You can only use this method when ths status is: " + GameStatus.MAP_DEF + ".");
@@ -110,7 +110,7 @@ public class Game implements IGame {
      * {@inheritdoc}
      */
     @Override
-    public void mapDefenitions(String filename) throws gameStatusIllegalAction {
+    public void mapDefinitions(String filename) throws gameStatusIllegalAction {
         if (this.status != GameStatus.MAP_DEF) {
             throw new gameStatusIllegalAction(
                     "You can only use this method when ths status is: " + GameStatus.MAP_DEF + ".");
@@ -123,7 +123,7 @@ public class Game implements IGame {
      * {@inheritdoc}
      */
     @Override
-    public void playerDefenitions(String p1, String flag1, String p2, String flag2) throws gameStatusIllegalAction {
+    public void playerDefinitions(String p1, String flag1, String p2, String flag2) throws gameStatusIllegalAction {
         if (this.status != GameStatus.PLAYER_DEF) {
             throw new gameStatusIllegalAction(
                     "You can only use this method when ths status is: " + GameStatus.PLAYER_DEF + ".");
