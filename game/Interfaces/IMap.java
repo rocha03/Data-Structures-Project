@@ -18,19 +18,19 @@ public interface IMap {
      * @param direction     is either one-way or two-way.
      * @param density       is the percentage from 0 to 1 of the amount of edges.
      */
-    public void generate_map(int locations_qty, Direction direction, float density);
+    public void generateMap(int locations_qty, Direction direction, float density);
 
     /**
      * Stores a previously saved map into the game.
      * 
      * @param filename is the string containing the file name/path.
      */
-    public void load_map(String filename);
+    public void loadMap(String filename);
 
     /**
      * Saves the current map to be used at a later date.
      * 
      * @param name whitch will be saved with the map.
      */
-    public void save_map(String name);
+    public void saveMap(String name);
 }

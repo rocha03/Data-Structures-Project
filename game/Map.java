@@ -37,7 +37,7 @@ public class Map implements IMap {
      * {@inheritdoc}
      */
     @Override
-    public void generate_map(int locations_qty, Direction direction, float density) {
+    public void generateMap(int locations_qty, Direction direction, float density) {
         // TODO Auto-generated method stub
 
     }
@@ -46,7 +46,7 @@ public class Map implements IMap {
      * {@inheritdoc}
      */
     @Override
-    public void load_map(String filename) {
+    public void loadMap(String filename) {
         // TODO Auto-generated method stub
 
     }
@@ -55,7 +55,7 @@ public class Map implements IMap {
      * {@inheritdoc}
      */
     @Override
-    public void save_map(String name) {
+    public void saveMap(String name) {
         // TODO Auto-generated method stub
 
     }

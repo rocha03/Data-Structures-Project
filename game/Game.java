@@ -114,7 +114,7 @@ public class Game implements IGame {
             throw new gameStatusIllegalAction(
                     "You can only use this method when ths status is: " + GameStatus.MAP_DEF + ".");
         }
-        this.map.generate_map(locations_qty, direction, density);
+        this.map.generateMap(locations_qty, direction, density);
         this.status = GameStatus.PLAYER_DEF;
     }
 
@@ -127,7 +127,7 @@ public class Game implements IGame {
             throw new gameStatusIllegalAction(
                     "You can only use this method when ths status is: " + GameStatus.MAP_DEF + ".");
         }
-        this.map.load_map(filename);
+        this.map.loadMap(filename);
         this.status = GameStatus.PLAYER_DEF;
     }
 
