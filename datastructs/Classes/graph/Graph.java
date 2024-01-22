@@ -116,7 +116,20 @@ public class Graph<T> implements GraphADT<T> {
     }
 
     private void expandCapacity(){
+        T[] newVertices = (T[])(new Object[vertices.length + DEFAULT_CAPACITY]);
+        boolean[][] newAdjMatrix = new boolean[adjMatrix.length + DEFAULT_CAPACITY][adjMatrix.length + DEFAULT_CAPACITY];
+        for(int i = 0; i < vertices.length; i++){
+            newVertices[i] = vertices[i];
+        }
 
+        for(int x = 0; x < adjMatrix.length;x++){
+            for(int y = 0; y < adjMatrix[x].length; y++){
+                newAdjMatrix[x][y] = adjMatrix[x][y];
+            }
+        }
+        
+        vertices = newVertices;
+        adjMatrix = newAdjMatrix;
     }
 
     private boolean indexIsValid(int index){
