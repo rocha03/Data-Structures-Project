@@ -34,6 +34,8 @@ public class Graph<T> implements GraphADT<T> {
         addEdge(getIndex(vertex1), getIndex(vertex2));
     }
 
+    /*Alo */
+
     /**
      * Inserts an edge between two vertices of the graph.
      *
@@ -111,5 +113,23 @@ public class Graph<T> implements GraphADT<T> {
     @Override
     public int size() {
         return this.numVertices;
+    }
+
+    private void expandCapacity(){
+
+    }
+
+    private boolean indexIsValid(int index){
+        return getIndex(vertices[index]) != -1;
+    }
+
+    private int getIndex(T vertex){
+        int index = -1;
+        for(int i = 0; i < numVertices;i++){
+            if(vertices[i].equals(vertex)){
+                index = i;
+            }
+        }
+        return index;
     }
 }
